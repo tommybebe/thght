@@ -51,7 +51,7 @@ define(function(require){
 				return;
 			}
 
-			this.$('.add').empty().css('background-image', 'url(' + character.image.frontImage + '?' + (new Date()).getTime() + ')');
+			this.$('.add').addClass('on').empty().css('background-image', 'url(' + character.image.frontImage + '?' + (new Date()).getTime() + ')');
 
 			this.$('.writeForm').show().addClass('on');
 			this.$('textarea').focus();
@@ -96,7 +96,7 @@ define(function(require){
 
 
 		cancel : function(){
-			this.$('.add').append('<i class="icon-plus"></i>').css('background-image','');
+			this.$('.add').removeClass('on').append('<i class="icon-plus"></i>').css('background-image','');
 			this.$('textarea').val('');
 			this.$('.writeForm').hide().removeClass('on');
 		},
