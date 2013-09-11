@@ -1,0 +1,18 @@
+{
+  "name": "jquery.couch",
+  "version": "0.0.0",
+  "main": "./jquery.couch.js",
+  "dependencies": {
+    "jquery": "*"
+  },
+  "gitHead": "35e396830948562291ef2757f01b90a491812f4e",
+  "readme": "jquery.couch\r\n============\r\n\r\njquery.couch.js for bower",
+  "readmeFilename": "README.md",
+  "_id": "jquery.couch@1.0.0",
+  "description": "jquery.couch\r ============",
+  "commit": "35e396830948562291ef2757f01b90a491812f4e",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vkurchatkin/jquery.couch"
+  }
+}

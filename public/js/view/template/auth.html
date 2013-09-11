@@ -1,0 +1,21 @@
+<a href="/write" id="newMoment" class="newMoment button">+ Moment</a>
+
+<div id="account" class="button">
+	<img src="/img/loading.gif">
+</div>
+<a class="link button">
+	<i class="icon-link-ext-alt"></i>
+</a>
+<ul class="accounts">
+	<li class="account">
+		<a href="/logout" id="logout">Logout</a>
+	</li>
+	<li class="account">
+		<a id="newCharacterFormOpen">+ New Account</a>
+	</li>
+	{{~ it :character :index }}
+	<li class="account">
+		<a class="character" data-id="{{=character._id}}">{{=character.name}}</a>
+	</li>
+	{{~}}
+</ul>

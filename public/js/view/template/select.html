@@ -1,0 +1,7 @@
+<select class="cd-select" id="{{=it.id}}">
+	{{? it.options }}
+		{{~it.options : item : i }}
+			<option value="{{=item.value}}" {{? item.selected }} selected {{?}}>{{=item.text}}</option>
+		{{~}}
+	{{?}}
+</select>

@@ -1,0 +1,24 @@
+<li class="post">
+	{{? it._length }}
+		{{ for(var i=0; i<it._length && i<3; i++ ){ }}	
+		<div class="stack" style="top:{{=(i)*6 }}px; left:{{=i*3}}px;
+		-webkit-transform: rotate({{=(Math.random()*i)*2-i }}deg);
+		-moz-transform: rotate({{=(Math.random()*i)*2-i }}deg);
+		-o-transform: rotate({{=(Math.random()*i)*2-i }}deg);
+		transform: rotate({{=(Math.random()*i*2)*2-i }}deg);"></div>
+		{{ } }}
+	{{?}}
+	<a class="text" href="/post/{{=it._id}}">
+		<p>
+			{{=it.text}}
+		</p>
+	</a>
+	<div class="character">
+		<span class="time">{{=it.date}}</span>
+		<a href="/posts/{{=it.character._id}}">- {{=it.character.name}}</a>
+	</div>
+</li>
+
+{{ for(var i=0; i<it._length; i++ ){ }}
+
+{{ } }}

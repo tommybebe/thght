@@ -1,0 +1,97 @@
+!!! html
+html
+	head
+		meta(charset="utf-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+		meta(name="description", content="This is why we broke up")
+		meta(name="viewport", content="initial-scale=1,user-scalable=no,maximum-scale=1")
+
+		title Thght 
+
+		link(href='http://fonts.googleapis.com/css?family=Noto+Sans|Neuton:800', rel='stylesheet', type='text/css')
+		link(rel="stylesheet", href="/css/fontello.css")
+
+		- if(process.env.NODE_ENV == 'development'){
+
+			link(rel="stylesheet", href="/css/common.css")
+			script(src="/js/components/requirejs/require.js", data-main="/js/main")
+
+		- } else {
+
+			link(rel="stylesheet", href="/css/common-min.css")
+			script(src="/js/components/requirejs/require-min.js")
+			| <script>
+			| 	require.config({
+			| 		paths: { "main": "/js/main-min" }
+			| 	});
+			| 	require(["main"]);
+			| </script>
+
+		- }
+		
+
+
+	body
+		.page#explore
+			aside.cover
+				h1.title Thght
+				.select.small.moment
+
+			section.content
+				.posts
+					ul
+
+		.page#posts
+
+			aside.cover
+				.character
+					.backImage
+					.frontImage
+					.name Anonymous
+					.buttons
+						.select.small.moment
+
+			section.content
+				.posts
+					ul
+
+		.page#post
+			section.content.timeline
+				ul.comments
+
+
+				form.writeForm
+					.comment
+						textarea(name="comment")
+					.buttons
+						.cancel.button.red Cancel
+						.commit.button Done
+
+		.page#write
+			.writer
+			form.writeForm
+				.select.moment
+				.comment
+					textarea(name="comment", id="comment")
+				//- .to
+				//- 	.select.who
+				.commit.button Send
+
+		.page#notFound.notFound 404, Page Not Found
+
+		#nav.nav
+			a#home.button(href="/") ◀
+				i.icon-home
+
+
+		#auth.auth
+			a#login.button(href="/login") Login
+			.modal
+				.back
+				form
+					label What's your name?
+					.refresh.button
+						i.icon-spin3
+					input#newCharacter(type="text", placeholder="☞", value="Angry Gorilla", name="newCharacter")
+					span#modalCancel.button.red Cancel
+					span#modalDone.button Done

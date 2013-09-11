@@ -1,0 +1,29 @@
+{
+  "name": "thght",
+
+  "version": "0.0.1",
+
+  "author": {
+    "name" : "minwoo",
+    "email" : "hansupanda@gmail.com"
+  },
+
+  "main": "server.js",
+
+  "dependencies": {
+    "async": "~0.1.22",
+    "express": "~3.1.0",
+    "lodash": "~1.2.1",
+    "vows": "~0.7.0",
+    "request": "~2.11.1",
+    "socket.io": "~0.9.13",
+    "facebook-js": "~1.0.1",
+    "jade": "~0.27.6",
+    "moment": "~2.0.0",
+    "s3policy": "~0.0.1",
+    "clean-css": "~1.0.12",
+    "knox": "~0.8.6"
+  },
+  "devDependencies": {}
+
+}

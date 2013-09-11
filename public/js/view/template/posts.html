@@ -1,0 +1,27 @@
+{{~ it :comment :index }}
+
+	{{? it[0].character._id == comment.character._id }}
+	<li class="comment left">
+	{{??}}
+	<li class="comment right">
+	{{?}}
+		{{? comment.image }}
+		<div class="image">
+			<img src="{{=comment.image.src}}">
+		</div>
+		{{?}}
+		<p>{{=comment.text}}</p>
+		<span class="time">{{=comment.date}}</span>
+		<div class="character">
+			{{? comment.character.image && comment.character.image.frontImage }}
+			<a href="/posts/{{=comment.character._id}}" style="background-image:url({{=comment.character.image.frontImage}})"></a>
+			{{?? }}
+				{{? it[0].character._id == comment.character._id }}
+				<a href="/posts/{{=comment.character._id}}" style="background-image:url(/img/characterDefaultImage/gentle_cat.jpg)"></a>
+				{{?? }}
+				<a href="/posts/{{=comment.character._id}}" style="background-image:url(/img/characterDefaultImage/happy_cat.jpg)"></a>
+				{{?}}
+			{{?}}
+		</div>
+	</li>
+{{~}}
