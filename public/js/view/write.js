@@ -119,7 +119,7 @@ define(function(require){
 		}, 300),
 
 		calculateLayout : function(){
-			this.$('#comment').css('font-size', (comment.width() * 0.049) );
+			this.$('#comment').css('font-size', ($('#comment').width() * 0.049) );
 		},
 
 		findFriends : function (e){
