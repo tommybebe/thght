@@ -61,6 +61,11 @@ module.exports = {
 
 				var val = body;
 
+				if(err){
+					console.log(err);
+					return;
+				}
+
 				if(val && val.rows){
 					val.rows.forEach(function(row, i){
 						if(!row.deleted || (row.value && !row.value.deleted )){
@@ -79,7 +84,10 @@ module.exports = {
 					res.json(val);
 				}
 
-			})
+				api.updateNotification(req, body);
+				
+			});
+
 		},
 
 		login = function(req, res) {
