@@ -33,8 +33,7 @@ define(function(require){
 			'explore'       : '_router',
 			'posts/:_id'    : '_router',
 			'post/:_id'     : '_router',
-			'404'           : '_router',
-			'*actions'      : '404'
+			'*actions'      : 'notFound'
 		},
 
 		initialize : function(){
@@ -52,7 +51,7 @@ define(function(require){
 				explore     : new ExploreView({ vent : globalEvents }),
 				posts       : new PostsView({ vent : globalEvents }),
 				post        : new PostView({ vent : globalEvents }),
-				404         : new E404View(),
+				notFound    : new E404View(),
 				current     : function(){
 					var current = $('.page:visible').attr('id');
 					if(!current){
@@ -73,8 +72,13 @@ define(function(require){
 			if(path == ""){
 				path = 'explore';
 			}
+			
 			this.views.current().hide();
-			this.views[path].render(id);
+			if(Object.keys(this.views).indexOf(path) == -1){
+				this.views.notFound.render();
+			} else {
+				this.views[path].render(id);
+			}
 			this.views.nav.set(path);
 		},
 
@@ -110,9 +114,9 @@ define(function(require){
 		// 	this.views.nav.set('post');
 		// },
 
-		'404' : function(){
+		notFound : function(){
 			this.views.current().hide();
-			this.views.e404.render();
+			this.views.notFound.render();
 			this.views.nav.set('404');
 		},
 
