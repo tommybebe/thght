@@ -66,6 +66,11 @@ module.exports = {
 					return;
 				}
 
+				if(val.rev){
+					val._rev = val.rev;
+					delete val.rev;
+				}
+
 				if(val && val.rows){
 					val.rows.forEach(function(row, i){
 						if(!row.deleted || (row.value && !row.value.deleted )){
