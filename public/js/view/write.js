@@ -15,43 +15,45 @@ define(function(require){
 
 		el : '#write',
 		events : {
-			'click .cd-dropdown ul li' : 'findFriends',
-			'click .commit' : 'commit'
+			// 'click .cd-dropdown ul li' : 'findFriends',
+			// 'click .commit' : 'commit'
 		},
 		initialize: function(option){
 
-			var self = this,
-				select = {
-					moment : config.defaultMoment('write_momentSelect'),
-					who : {
-						id : 'who',
-						options : [
-							{ value : '-1', text : 'To', selected : true },
-							{ value : 'To-Anyone', text : 'To Anyone', selected : false },
-							{ value : 'To-No-one', text : 'To No one', selected : false },
-							{ value : 'Find-someone-from-facebook', text : 'Find someone from facebook', selected : false }
-						]
-					}
-				}
+			var self = this;
+				// select = {
+				// 	moment : config.defaultMoment('write_momentSelect'),
+				// 	who : {
+				// 		id : 'who',
+				// 		options : [
+				// 			{ value : '-1', text : 'To', selected : true },
+				// 			{ value : 'To-Anyone', text : 'To Anyone', selected : false },
+				// 			{ value : 'To-No-one', text : 'To No one', selected : false },
+				// 			{ value : 'Find-someone-from-facebook', text : 'Find someone from facebook', selected : false }
+				// 		]
+				// 	}
+				// }
 
 			this.character = new Character();
 
 			// --
-			this.selectForm    = dot.template(html);
-			this.selectBackup  = this.$('#cd-dropdown').clone();
+			// this.selectForm    = dot.template(html);
+			// this.selectBackup  = this.$('#cd-dropdown').clone();
 
 			_.bindAll(this);
 
 			// == 
 			// this.$('.moment').append(self.selectForm(select.moment));
-			this.$('.who').append(self.selectForm(select.who));
+			// this.$('.who').append(self.selectForm(select.who));
 
 			// -- 
-			this.$('#comment').autosize({
-				callback : function(self){
-					$(self).data('rows', _getRows({ height : self.offsetHeight }));
-				}
-			});
+			// this.$('#comment').autosize({
+			// 	callback : function(self){
+			// 		$(self).data('rows', _getRows({ height : self.offsetHeight }));
+			// 	}
+			// });
+
+			this.$('.commit').on('click', self.commit);
 
 			function _getRows(param){
 
@@ -85,9 +87,9 @@ define(function(require){
 			// this.$('.title').fitText(2, { minFontSize: '24px' });
 
 			this.$el.show();
-			this.$( '.cd-select' ).each(function(){
-				$(this).dropdown();
-			});
+			// this.$( '.cd-select' ).each(function(){
+			// 	$(this).dropdown();
+			// });
 			this.$('#comment').focus();
 
 			_setImage();
@@ -109,7 +111,7 @@ define(function(require){
 		},
 		hide : function(){
 			$(window).off('resize', this.lazyLayout);
-			this.$('.who').children().not(':first-child').remove().end().show();
+			// this.$('.who').children().not(':first-child').remove().end().show();
 			this.$el.hide(200);
 			console.log('hide write page');
 		},
@@ -122,46 +124,46 @@ define(function(require){
 			this.$('#comment').css('font-size', ($('#comment').width() * 0.049) );
 		},
 
-		findFriends : function (e){
-			var self = this,
-				input = $(e.target).parent().parent().prev(),
-				loadingPannel = this.$('.who').children(':first-child').find('span:eq(0)');
+		// findFriends : function (e){
+		// 	var self = this,
+		// 		input = $(e.target).parent().parent().prev(),
+		// 		loadingPannel = this.$('.who').children(':first-child').find('span:eq(0)');
 
-			if(input.val() == 'Find-someone-from-facebook'){
+		// 	if(input.val() == 'Find-someone-from-facebook'){
 
-				loadingPannel.empty().append('<img src="img/loading.gif"/>');
+		// 		loadingPannel.empty().append('<img src="img/loading.gif"/>');
 
-				$.get('/api/user/findFriends', function(data){
+		// 		$.get('/api/user/findFriends', function(data){
 
-					if(data){
+		// 			if(data){
 
-						var friendsSelect = { 
-							id : 'friendsSelect',
-							options : []
-						};
+		// 				var friendsSelect = { 
+		// 					id : 'friendsSelect',
+		// 					options : []
+		// 				};
 
-						friendsSelect.options.push({ value : '-1', text : 'Choose someone', selected : true });
-						friendsSelect.options.push({ value : 'To-Anyone', text : 'To Anyone', selected : false });
-						friendsSelect.options.push({ value : 'To-No-one', text : 'To No one', selected : false });
+		// 				friendsSelect.options.push({ value : '-1', text : 'Choose someone', selected : true });
+		// 				friendsSelect.options.push({ value : 'To-Anyone', text : 'To Anyone', selected : false });
+		// 				friendsSelect.options.push({ value : 'To-No-one', text : 'To No one', selected : false });
 
-						data.data.forEach(function(friend){
-							friendsSelect.options.push({ value : friend.id, text : 'to ' + friend.name, selected : false })
-						});
+		// 				data.data.forEach(function(friend){
+		// 					friendsSelect.options.push({ value : friend.id, text : 'to ' + friend.name, selected : false })
+		// 				});
 
-						self.$('.who').children().hide();
+		// 				self.$('.who').children().hide();
 
-						self.$('.who').append(self.selectForm(friendsSelect));
-						$('#' + friendsSelect.id ).dropdown();
+		// 				self.$('.who').append(self.selectForm(friendsSelect));
+		// 				$('#' + friendsSelect.id ).dropdown();
 
-					} else {
+		// 			} else {
 
-					}
+		// 			}
 
-				}).done(function(){
-					loadingPannel.text('To');
-				})
-			}
-		},
+		// 		}).done(function(){
+		// 			loadingPannel.text('To');
+		// 		})
+		// 	}
+		// },
 
 		commit : function(){
 			var self = this,
@@ -176,16 +178,19 @@ define(function(require){
 					data[input.name] = input.value;
 				}
 			});
+
 			data.user = user;
 
 			if(!_validate(data)){
 				return;
 			}
 
+			this.$('.commit').off('click');
+
 			this.model = new Post({
 				owner     : user._id,
 				auth      : auth,
-				public    : !!(data.who == 'To-Anyone'),
+				public    : true,
 				category  : data.moment,
 				content   : [{
 					character : {
@@ -200,9 +205,16 @@ define(function(require){
 
 			this.model.save(null, {
 				success : function(data){
+					this.$('.commit').on('click', self.commit);
 					self.$('textarea').val('');
 					backbone.history.navigate('/post/' + data._id, { trigger : true });
+				},
+				error : function(err){
+					self.$('textarea').val('');
+					this.$('.commit').on('click', self.commit);
+					alert("Haha. Something goes wrong.", err);
 				}
+
 			});
 
 			// @param

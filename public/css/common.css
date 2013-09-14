@@ -1095,7 +1095,7 @@ a.button {
 	}
 
 	#posts .content {
-		margin-top: 120px;
+		margin-top: 160px;
 	}
 
 	.nav {
@@ -1201,7 +1201,9 @@ a.button {
 }
 
 @media all and (max-width: 480px) and (min-width: 0px) {
-
+	.auth {
+		width: 130px;
+	}
 	.title {
 		font-size: 50px;
 		padding: 60px 0 0 12px;
@@ -1209,6 +1211,7 @@ a.button {
 	}
 	.button {
 		padding: 4px;
+		font-size: 13px;
 	}
 
 	#write .writeForm {

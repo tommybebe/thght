@@ -79,7 +79,6 @@ define(function(require){
 
 			if(!model.id){
 				this.clear();
-				return;
 			}
 			if(data.error){
 				backbone.history.navigate('/404', { trigger : true });

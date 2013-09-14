@@ -84,7 +84,11 @@ module.exports = {
 					res.json(val);
 				}
 
-				api.updateNotification(req, body);
+				(function(req, body){
+					process.nextTick(function(){
+						api.updateNotification(req, body);
+					});
+				})(req, body);
 				
 			});
 

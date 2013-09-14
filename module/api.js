@@ -19,12 +19,11 @@ updateNotification = function(req, model){
 
 	var _update = {
 		post : {
-			get : function(req, model){
-				_postViewed(req, model);
-			},
-			put : function(req, model){
-				_postAdded(req, model);
-			}
+			get : _postViewed,
+			put : _postAdded,
+			post : function(){},
+			delete : function(){},
+			option : function(){},
 		}
 	}
 

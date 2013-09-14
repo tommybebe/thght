@@ -52,7 +52,7 @@ define(function(require){
 				explore     : new ExploreView({ vent : globalEvents }),
 				posts       : new PostsView({ vent : globalEvents }),
 				post        : new PostView({ vent : globalEvents }),
-				e404        : new E404View(),
+				404         : new E404View(),
 				current     : function(){
 					var current = $('.page:visible').attr('id');
 					if(!current){
