@@ -239,7 +239,7 @@ define(function(require){
 					loading.done();
 				}, false);
 
-				xhr.open('POST', 'https://themomentof.s3.amazonaws.com/', true); //MUST BE LAST LINE BEFORE YOU SEND 
+				xhr.open('POST', config.storage.domain + '/', true); //MUST BE LAST LINE BEFORE YOU SEND 
 
 				xhr.send(fd);
 

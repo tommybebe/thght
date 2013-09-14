@@ -1,6 +1,6 @@
 var storage = {
-		domain : 'https://themomentof.s3.amazonaws.com',
-		cdn    : 'http://d2zkb8avryngtf.cloudfront.net'
+		domain : 'https://thght.s3.amazonaws.com',
+		cdn    : 'http://d2r15t4srb10nb.cloudfront.net'
 	},
 	front = [
 		'/img/characterDefaultImage/angry_cat.jpg',
