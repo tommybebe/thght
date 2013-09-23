@@ -1,21 +1,31 @@
-<a href="/write" id="newMoment" class="newMoment button">+ Moment</a>
+<div id="loginUser">
+	<a href="/write" id="newPost" class="newPost button">+ Post</a>
 
-<div id="account" class="button">
-	<img src="/img/loading.gif">
+	<div id="account" class="currentCharacter button">
+		<img src="/img/loading.gif">
+	</div>
+
+	<ul class="panel">
+		<li class="header closePanel">
+			<i class="icon-cancel-1"></i>
+		</li>
+		<li class="logout">
+			<a href="/logout" id="logout">Logout</a>
+		</li>
+		<li class="newCharacter">
+			<a id="newCharacterFormOpen">+ New Account</a>
+		</li>
+		{{~ it :character :index }}
+		<li class="character">
+			<a href="/posts/{{=character._id}}" data-id="{{=character._id}}">
+				<span class="thumb">
+					<img src="{{=character.image.frontImage}}"/>
+				</span>
+				<span class="name">{{=character.name}}</span>
+
+				<a class="unread{{? character.unread}} exist{{?}}" {{? character.unreadPost}} href="/post/{{=character.unreadPost}}"{{?}}>{{=character.unread}}</a>
+			</a>
+		</li>
+		{{~}}
+	</ul>
 </div>
-<a class="link button">
-	<i class="icon-link-ext-alt"></i>
-</a>
-<ul class="accounts">
-	<li class="account">
-		<a href="/logout" id="logout">Logout</a>
-	</li>
-	<li class="account">
-		<a id="newCharacterFormOpen">+ New Account</a>
-	</li>
-	{{~ it :character :index }}
-	<li class="account">
-		<a class="character" data-id="{{=character._id}}">{{=character.name}}</a>
-	</li>
-	{{~}}
-</ul>

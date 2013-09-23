@@ -59,7 +59,8 @@ module.exports = {
 
 			request(param , function(err, data, body){
 
-				var val = body;
+				var val  = body,
+					list = [];
 
 				if(err){
 					console.log(err);
@@ -73,11 +74,15 @@ module.exports = {
 
 				if(val && val.rows){
 					val.rows.forEach(function(row, i){
-						if(!row.deleted || (row.value && !row.value.deleted )){
-							val.rows[i] = row.doc || row.value;
+						if(row.deleted){
+							
+						} else if(row.value && row.value.deleted){
+							
+						} else {
+							list.push(row.doc || row.value);
 						}
 					});
-					val = val.rows;
+					val = list;
 				}
 
 				if( (req.url.match('/api/user') && val.ok) && (req.method == 'PUT' || req.method == 'POST') ){

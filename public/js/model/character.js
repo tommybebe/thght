@@ -20,11 +20,13 @@ define(function(require){
 			}
 		},
 
-		initialize : function(_id){
+		initialize : function(character){
 			var self = this;
 
-			if(_id){
-				this.db += '/' + _id;
+			if(character && _.isString(character)){
+				this.db += '/' + character;
+			} else if(character && character._id) {
+				this.db += '/' + character._id;
 			}
 
 			this.on('change:id', function(){

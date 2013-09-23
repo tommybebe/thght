@@ -24,6 +24,24 @@ define(function(require){
 		},
 		setKey : function(key){
 			this.key = key;
+		},
+		getUnreadCount : function(){
+			var self  = this,
+				count = 0;
+
+			this.each(function(character){
+				var noti = character.get('notification');
+				if(noti){
+					noti.forEach(function(notification){
+						if(notification.unread != 0){
+							count += notification.unread;
+						}
+					});
+				}
+			});
+
+			return count;
 		}
+
 	});
 });

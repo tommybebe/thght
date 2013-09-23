@@ -80,6 +80,7 @@ define(function(require){
 				this.views[path].render(id);
 			}
 			this.views.nav.set(path);
+			this.views.auth.set(path, id);
 		},
 
 		// write : function(){
