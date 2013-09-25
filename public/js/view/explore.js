@@ -115,6 +115,12 @@ define(function(require){
 
 		link : function(e){
 			e.preventDefault();
+
+			if(e.currentTarget.parentNode.className == 'write' && !$('#account').data()){
+				$('#login').alert();
+				return;
+			}
+
 			if(e.target.parentElement.pathname){
 				backbone.history.navigate(e.target.parentElement.pathname, { trigger : true });
 			} else {
