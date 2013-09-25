@@ -13,24 +13,25 @@ if(process.env.NODE_ENV == 'production'){
 	if (cluster.isMaster) {
 		
 		optimizer();
+		server();
+		
+		// // Fork workers.
+		// for (var i = 0; i < numCPUs; i++) {
+		// 	cluster.fork();
+		// }
 
-		// Fork workers.
-		for (var i = 0; i < numCPUs; i++) {
-			cluster.fork();
-		}
+		// cluster.on('exit', function(deadWorker, code, signal) {
+		// 	// Restart the worker
+		// 	var worker = cluster.fork();
 
-		cluster.on('exit', function(deadWorker, code, signal) {
-			// Restart the worker
-			var worker = cluster.fork();
+		// 	// Note the process IDs
+		// 	var newPID = worker.process.pid;
+		// 	var oldPID = deadWorker.process.pid;
 
-			// Note the process IDs
-			var newPID = worker.process.pid;
-			var oldPID = deadWorker.process.pid;
-
-			// Log the event
-			console.log('worker '+oldPID+' died.');
-			console.log('worker '+newPID+' born.');
-		});
+		// 	// Log the event
+		// 	console.log('worker '+oldPID+' died.');
+		// 	console.log('worker '+newPID+' born.');
+		// });
 
 	} else {
 		server();
