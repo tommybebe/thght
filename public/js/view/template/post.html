@@ -15,7 +15,12 @@
 	</a>
 	<div class="character">
 		<span class="time">{{=it.date}}</span>
-		<a href="/posts/{{=it.character._id}}">- {{=it.character.name}}</a>
+		<a href="/posts/{{=it.character._id}}">
+			- {{=it.character.name}}
+			{{? it.character.image && it.character.image.frontImage }}
+			<img src="{{=it.character.image.frontImage}}"/>
+			{{?}}
+		</a>
 	</div>
 </li>
 
