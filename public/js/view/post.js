@@ -36,6 +36,7 @@ define(function(require){
 		},
 		hide : function(){
 			this.$el.hide();
+			self.$('textarea').text('');
 			if(this.model){
 				this.model.clear();
 			}
@@ -100,10 +101,10 @@ define(function(require){
 			this.$('.writeForm').hide().removeClass('on');
 		},
 		done : function (){
-			var self = this,
-				user = $('#account').data(),
-				text = this.$('textarea').serializeArray()[0].value,
-				content = this.model.attributes.content;
+			var self    = this,
+				user    = $('#account').data(),
+				text    = this.$('textarea').serializeArray()[0].value,
+				content = this.model.get('content');
 
 			if(!user || !user._id || !user.name){
 				$('#login').alert();
@@ -114,7 +115,7 @@ define(function(require){
 				return;
 			}
 
-			this.$('.add').addClass('loading');
+			// this.$('.add').addClass('loading');
 			this.$('.writeForm').hide().removeClass('on');
 
 			// content.forEach(function(doc, index){
@@ -131,7 +132,7 @@ define(function(require){
 				date : new Date()
 			});
 
-			this.model.save({ 'content' : content }, {
+			this.model.save({ 'content' : content, 'lastUpdate' : new Date() }, {
 				success : function(){
 					self.$('textarea').text('');
 				}
