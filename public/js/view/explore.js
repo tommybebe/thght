@@ -103,7 +103,7 @@ define(function(require){
 		},
 
 		reset : function(){
-			this.$('.posts ul').empty();
+			this.$('.posts ul').empty().append('<li class="write"><a href="/write" data-hover="New post"><i class="icon-plus"></i></a></li>');
 		},
 		add : function(posts){
 			var self = this;

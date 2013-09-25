@@ -268,11 +268,23 @@ a.button {
 	font-weight: bold;
 }
 
-.auth .newPost {
+/*.auth .newPost {
 	position: absolute;
 	bottom: 50px;
 	left: 140px;
 	width: 100px;
+}
+*/
+.auth .setting {
+	position: absolute;
+	bottom: 50px;
+	left: 140px;
+	border: 0;
+	width: 48px;
+	height: 48px;
+	font-size: 32px;
+	padding: 0;
+	border-radius: 24px;
 }
 
 .auth ul.panel {
@@ -575,6 +587,72 @@ a.button {
 	text-align: center;
 	margin: 72px 0;
 }
+
+.content .posts ul li.write {
+	position: relative;
+	display: inline-block;
+	width: 330px;
+	height: 120px;
+	vertical-align: top;
+	margin: 12px;
+	padding: 0;
+}
+.content .posts ul li.write a {
+	margin-top: 12px;
+	border-radius: 40px;
+	display: inline-block;
+	background: rgba(255, 255, 255, 0.3);
+	color: #fff;
+	color: rgba(255, 255, 255, 0.6);
+	-webkit-transition: all 0.2s ease-in;
+	   -moz-transition: all 0.2s ease-in;
+		 -o-transition: all 0.2s ease-in;
+	 		transition: all 0.2s ease-in;
+}
+.content .posts ul li.write a i {
+	width: 80px;
+	height: 80px;
+	font-size: 52px;
+}
+.content .posts ul li.write a:hover {
+	color: #fff;
+	background: #44a8eb;
+	-webkit-box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+	   -moz-box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+		 -o-box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+			box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.content .posts ul li.write a:active {
+	-webkit-box-shadow: 0 0 0 rgba(0,0,0,0);
+	   -moz-box-shadow: 0 0 0 rgba(0,0,0,0);
+			box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+.content .posts ul li.write a::after {
+	content: attr(data-hover);
+	position: relative;
+	display: inline-block;
+	width: 0;
+	height: 60px;
+	overflow: hidden;
+	vertical-align: top;
+	font-size: 24px;
+	line-height: 70px;
+	font-family: 'Noto Sans', "맑은 고딕";
+	text-align: left;
+	-webkit-transition: all 0.2s ease-in;
+	   -moz-transition: all 0.2s ease-in;
+		 -o-transition: all 0.2s ease-in;
+	 		transition: all 0.2s ease-in;
+}
+.content .posts ul li.write a:hover::after {
+	width: 130px;
+	display: inline-block;
+	-webkit-animation: slide-in-left .2s ease both;
+	   -moz-animation: slide-in-left .2s ease both;
+		 -o-animation: slide-in-left .2s ease both;
+			animation: slide-in-left .2s ease both;
+}
+
 .content .posts ul li.post {
 	position: relative;
 	background: rgba(255, 255, 255, 0.7);

@@ -20,13 +20,14 @@ define(function(require){
 
 		el : '#auth',
 		events : {
-			'click #account'        : 'showAccount',
+			// 'click #account'        : 'showAccount',
 			'click .closePanel'     : 'closePanel',
 			'click a'               : 'link',
 			// 'click .character'      : 'selectCharacter',
 			'click #modalCancel'    : 'cancel',
 			'click #modalDone'      : 'done',
 			'click .refresh'        : 'refresh',
+			'click .setting'        : 'openPanel',
 			'mouseout .accounts.on' : 'delayedHideAccount',
 			'mouseover .accounts'   : 'resetTimer',
 			'mouseleave .panel.on'  : 'closePanel'
@@ -193,7 +194,8 @@ define(function(require){
 			}
 
 			// set name
-			this.$('#account').empty().append(img).append(unread).data(character);
+			this.$('#account').empty().attr('href', '/posts/' + character._id)
+			.append(img).append(unread).data(character);
 			// set view object's attribute
 			this.currentCharacter = character;
 
@@ -220,6 +222,10 @@ define(function(require){
 			var self = this;
 			// this.$('.accounts').toggleClass('on');
 			// this.$('#account').toggleClass('on');
+			this.$('.panel').removeClass('off');
+			this.$('.panel').addClass('on');
+		},
+		openPanel : function(){
 			this.$('.panel').removeClass('off');
 			this.$('.panel').addClass('on');
 		},

@@ -150,13 +150,17 @@ define(function(require){
 				return;
 			}
 
+			this.makeNewPostButton();
+
+			// some browser don't have FormData. Pass that old things.
 			if(!FormData){
 				return;
 			}
 
 			if(document.getElementById('frontImage') || document.getElementById('backImage')){
-				return;
+				this.$('.frontImage, .backImage').empty();
 			}
+
 
 			this.$('.frontImage').append('<div class="edit"><div class="button">Edit</div></div><input id="frontImage" type="file" name="frontImage">');
 			this.$('.backImage').append('<div class="edit"><div class="button">Edit</div></div><input id="backImage" type="file" name="backImage">');
@@ -189,6 +193,10 @@ define(function(require){
 
 			})
 
+		},
+
+		makeNewPostButton : function(){
+			this.$('.posts ul').prepend('<li class="write"><a href="/write" data-hover="New post"><i class="icon-plus"></i></a></li>');
 		},
 
 		fileupload : function(file){
