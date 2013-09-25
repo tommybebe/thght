@@ -47,11 +47,11 @@ define(function(require){
 			// this.$('.who').append(self.selectForm(select.who));
 
 			// -- 
-			// this.$('#comment').autosize({
-			// 	callback : function(self){
-			// 		$(self).data('rows', _getRows({ height : self.offsetHeight }));
-			// 	}
-			// });
+			this.$('#comment').autosize({
+				callback : function(self){
+					$(self).data('rows', _getRows({ height : self.offsetHeight }));
+				}
+			});
 
 			this.$('.commit').on('click', self.commit);
 
