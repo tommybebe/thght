@@ -90,7 +90,7 @@ a.button {
 	left: 0;
 	width: 100%;
 	height: 2px;
-	z-index: 100;
+	z-index: 1000003;
 }
 .progressBar.blink {
 	background: #fff;

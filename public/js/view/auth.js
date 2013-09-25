@@ -302,11 +302,21 @@ define(function(require){
 			this.$('.modal').removeClass('on');
 		},
 		done : function(){
-			var self = this,
-				newCharacterName = $('#newCharacter').val(),
-				currentCharacter = this.model.get('character');
+			var self             = this,
+				input            = $('#newCharacter'),
+				newCharacterName = input.val();
 
+			if(!newCharacterName || newCharacterName == ''){
+				input.alert();
+				return;
+			}
+
+			this.$('#newCharacter').val('');
 			this.newCharacter(newCharacterName, self.saveCharacter);
+
+			if(this.loading) delete this.loading;
+			this.loading = new Progress();
+			this.loading.render().set();
 		},
 		newCharacter : function(name, callback){
 
@@ -327,6 +337,7 @@ define(function(require){
 
 			this.model.save({ 'character' : character }, {
 				success : function(){
+					self.loading.done();
 					self.$('.modal').removeClass('on');
 					backbone.history.navigate('/posts/' + model.id, { trigger : true });
 				}

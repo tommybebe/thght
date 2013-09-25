@@ -43,8 +43,9 @@ function loginCheck(user, callback){
 				uri    : domain + '/api/user/',
 				json   : true,
 				body   : newUser
-			}, function(err, res, data){
-				newUser._id = data.id;
+			}, function(err, res, body){
+				newUser._id = body.id;
+				newUser._rev = body._rev;
 				callback(null, newUser);
 			});
 			return;
