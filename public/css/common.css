@@ -1572,6 +1572,10 @@ a.button {
 		margin: 12px 0;
 		padding: 6px;
 	}
+	.content .posts ul li.write {
+		width: 100%;
+		margin: 6px 0;
+	}
 	.content .posts ul li.post {
 		width: 100%;
 		margin: 6px 0;
