@@ -188,18 +188,19 @@ define(function(require){
 			this.$('.commit').off('click');
 
 			this.model = new Post({
-				owner     : user._id,
-				auth      : auth,
-				public    : true,
-				category  : data.moment,
-				content   : [{
+				owner      : user._id,
+				auth       : auth,
+				public     : true,
+				lastUpdate : new Date(),
+				category   : data.moment,
+				content    : [{
 					character : {
-						_id : user._id,
-						name : user.name,
+						_id   : user._id,
+						name  : user.name,
 						image : user.image
 					},
-					text : encodeURIComponent(data.comment),
-					date : new Date()
+					text      : encodeURIComponent(data.comment),
+					date      : new Date()
 				}]
 			});
 
