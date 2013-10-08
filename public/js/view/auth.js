@@ -157,10 +157,10 @@ define(function(require){
 				if(character.notification){ 
 					character.notification.forEach(function(notification){ 
 						if(notification.unread > 0){
-							character.unread += notification.unread;
+							character.unread     += notification.unread;
+							character.unreadPost  = notification._id;
 						}
 					});
-					if(!character.unreadPost) character.unreadPost = character.notification[0]._id;
 				}
 			});
 
