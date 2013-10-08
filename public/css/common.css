@@ -295,6 +295,7 @@ a.button {
 	font-size: 32px;
 	padding: 0;
 	border-radius: 24px;
+	outline: none;
 }
 
 .auth ul.panel {
@@ -1346,12 +1347,11 @@ a.button {
 		border-radius: 32px;
 	}
 
-	.auth .newPost {
+	.auth .setting {
 		bottom: auto;
 		left: auto;
-		top: 38px;
-		right: 100px;
-		width: 80px;
+		top: 32px;
+		right: 110px;
 	}
 
 	.auth ul.panel {
@@ -1612,5 +1612,32 @@ a.button {
 	.timeline .writeForm .comment {
 		width: 100%;
 	}
+
+	.auth .currentCharacter {
+		bottom: auto;
+		left: auto;
+		top: 20px;
+		right: 20px;
+		width: 64px;
+		height: 64px;
+		padding: 4px;
+		border-radius: 32px;
+	}
+	.auth .currentCharacter img {
+		width: 56px;
+		height: 56px;
+		border-radius: 28px;
+	}
+	.auth .setting {
+		bottom: auto;
+		left: auto;
+		top: 32px;
+		right: 90px;
+		width: 40px;
+		height: 40px;
+		font-size: 28px;
+		border-radius: 20px;
+	}
+
 
 }
