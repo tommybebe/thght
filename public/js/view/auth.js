@@ -184,18 +184,25 @@ define(function(require){
 		}, 100),
 		
 		setCharacter : function(character){
-			var self = this,
-				img  = $('<img src="' + character.image.frontImage + '"/>'),
+			var self        = this,
+				img         = $('<img src="' + character.image.frontImage + '"/>'),
 				unreadCount = this.collection.getUnreadCount(),
-				unread = $('<div class="unread">' + unreadCount + '</div>');
+				totalUnread = '',
+				unread      = '';
 
-			if(!unreadCount){
-				unread = '';
+			if(unreadCount){
+				totalUnread = $('<div class="unread">' + unreadCount + '</div>');
+			}
+			if(character.unread && character.unreadPost){
+				unread      = $('<a class="unread" href="/post/' + character.unreadPost + '">' + character.unread + '</a>');
 			}
 
-			// set name
 			this.$('#account').empty().attr('href', '/posts/' + character._id)
 			.append(img).append(unread).data(character);
+
+			this.$('.setting').append(totalUnread);
+
+
 			// set view object's attribute
 			this.currentCharacter = character;
 
