@@ -176,8 +176,7 @@ define(function(require){
 					self.setCharacter(cookieCharacter);
 					return;
 				}
-			}
-			if(!self.currentCharacter){
+			} else {
 				self.setCharacter(data[data.length-1]);
 			}
 
