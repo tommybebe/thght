@@ -5,6 +5,7 @@ var cluster   = require('cluster'),
 	proxy     = require('./proxy'),
 	optimizer = require('./optimizer');
 
+	require('newrelic');
 
 process.env.NODE_ENV = config.env;
 
