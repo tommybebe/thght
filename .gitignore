@@ -3,3 +3,4 @@ node_modules
 key.js
 main-min.js
 common-min.css
+.DS_Store
